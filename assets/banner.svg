@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(30, 41, 59, 0.7)"/>
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.5)"/>
+    </linearGradient>
+
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="blurGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" result="blur" />
+    </filter>
+
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Animations -->
+    <style>
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-12px) rotate(1deg); }
+      }
+      @keyframes floatReverse {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(10px) rotate(-1deg); }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.65; transform: scale(1.08); }
+      }
+      @keyframes flowDash {
+        to { stroke-dashoffset: -40; }
+      }
+      @keyframes radarSweep {
+        0% { transform: rotate(0deg); transform-origin: 980px 180px; }
+        100% { transform: rotate(360deg); transform-origin: 980px 180px; }
+      }
+
+      .floating-card-1 { animation: floatSlow 7s ease-in-out infinite; }
+      .floating-card-2 { animation: floatReverse 8s ease-in-out infinite; }
+      .pulsing-orb { animation: pulseGlow 6s ease-in-out infinite alternate; }
+      .dash-flow { stroke-dasharray: 8 6; animation: flowDash 2.5s linear infinite; }
+      .radar-line { animation: radarSweep 10s linear infinite; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Geometric Grid Background Pattern -->
+  <g opacity="0.12" stroke="#64748b" stroke-width="0.8">
+    <path d="M 0,60 L 1200,60 M 0,120 L 1200,120 M 0,180 L 1200,180 M 0,240 L 1200,240 M 0,300 L 1200,300" />
+    <path d="M 150,0 L 150,360 M 300,0 L 300,360 M 450,0 L 450,360 M 600,0 L 600,360 M 750,0 L 750,360 M 900,0 L 900,360 M 1050,0 L 1050,360" />
+  </g>
+
+  <!-- Dynamic Ambient Glow Orbs in Background -->
+  <circle class="pulsing-orb" cx="200" cy="100" r="130" fill="#38bdf8" filter="url(#blurGlow)" />
+  <circle class="pulsing-orb" cx="1000" cy="220" r="150" fill="#a855f7" filter="url(#blurGlow)" />
+  <circle class="pulsing-orb" cx="600" cy="300" r="100" fill="#6366f1" filter="url(#blurGlow)" />
+
+  <!-- Background Data Flow Streams (Behind Foreground Content) -->
+  <path class="dash-flow" d="M 100,300 C 400,330 800,290 1100,320" fill="none" stroke="url(#textGrad)" stroke-width="2.5" opacity="0.4" />
+  <path class="dash-flow" d="M 50,70 C 350,30 750,90 1150,40" fill="none" stroke="#38bdf8" stroke-width="1.8" opacity="0.3" />
+
+  <!-- Animated Interactive / Dynamic Decorative Elements on Right Side -->
+  <g class="floating-card-1" opacity="0.88">
+    <!-- Ad Revenue Metrics Pill -->
+    <g transform="translate(860, 50)" filter="url(#dropShadow)">
+      <rect width="280" height="74" rx="14" fill="url(#cardGrad)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.2"/>
+      <circle cx="35" cy="37" r="18" fill="rgba(56, 189, 248, 0.15)"/>
+      <text x="35" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#38bdf8" text-anchor="middle">📊</text>
+      <text x="68" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#94a3b8" font-weight="500">Ad Yield &amp; Traversal</text>
+      <text x="68" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">+34.8% CPM ROI</text>
+      <path d="M 215,48 L 230,36 L 245,41 L 260,28" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <g class="floating-card-2" opacity="0.88">
+    <!-- Subscriber Lifecycle Pill -->
+    <g transform="translate(890, 150)" filter="url(#dropShadow)">
+      <rect width="260" height="74" rx="14" fill="url(#cardGrad)" stroke="rgba(192, 132, 252, 0.4)" stroke-width="1.2"/>
+      <circle cx="35" cy="37" r="18" fill="rgba(192, 132, 252, 0.15)"/>
+      <text x="35" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#c084fc" text-anchor="middle">👥</text>
+      <text x="68" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#94a3b8" font-weight="500">Subscriber Retention</text>
+      <text x="68" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#f8fafc" font-weight="700">98.2% Active MRR</text>
+      <circle cx="230" cy="37" r="6" fill="#10b981"/>
+    </g>
+  </g>
+
+  <g class="floating-card-1" opacity="0.88">
+    <!-- Open-Source & Enterprise Stack Indicator -->
+    <g transform="translate(830, 248)" filter="url(#dropShadow)">
+      <rect width="320" height="66" rx="14" fill="url(#cardGrad)" stroke="rgba(129, 140, 248, 0.4)" stroke-width="1.2"/>
+      <circle cx="35" cy="33" r="18" fill="rgba(129, 140, 248, 0.15)"/>
+      <text x="35" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#818cf8" text-anchor="middle">⚡</text>
+      <text x="68" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#94a3b8" font-weight="500">Architecture Integration</text>
+      <text x="68" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#e2e8f0" font-weight="600">SaaS &amp; Self-Hosted OSS Stacks</text>
+    </g>
+  </g>
+
+  <!-- FOREGROUND: Hero Title, Subtitle, Badges, Tagline (Always Crisp and Unobscured) -->
+  <g transform="translate(80, 0)">
+    <!-- Top Category Pill Tag -->
+    <g transform="translate(0, 52)">
+      <rect width="380" height="30" rx="15" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1"/>
+      <circle cx="16" cy="15" r="5" fill="#38bdf8"/>
+      <text x="32" y="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" letter-spacing="1">
+        ENTERPRISE MEDIA CRM &amp; AUDIENCE ECOSYSTEM
+      </text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="140" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" fill="#ffffff" letter-spacing="-1">
+      Awesome Media Advertising &amp;
+    </text>
+    <text x="0" y="194" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="900" fill="url(#textGrad)" letter-spacing="-1">
+      Subscriber CRM Solutions 🎯
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="242" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Curated directory of high-performance SaaS tools &amp; open-source engines for
+    </text>
+    <text x="0" y="270" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="500" fill="#cbd5e1">
+      ad sales pipelines, subscription lifecycle, audience monetization &amp; billing.
+    </text>
+
+    <!-- Feature Highlights / Mini Tags -->
+    <g transform="translate(0, 298)">
+      <rect x="0" y="0" width="125" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="62" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#38bdf8" font-weight="600" text-anchor="middle">📡 Ad Operations</text>
+
+      <rect x="135" y="0" width="135" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="202" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#818cf8" font-weight="600" text-anchor="middle">💳 Recurring Billing</text>
+
+      <rect x="280" y="0" width="130" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="345" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#c084fc" font-weight="600" text-anchor="middle">📈 Audience Insights</text>
+
+      <rect x="420" y="0" width="145" height="26" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="492" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#34d399" font-weight="600" text-anchor="middle">🌐 100% Data Sovereignty</text>
+    </g>
+  </g>
+</svg>

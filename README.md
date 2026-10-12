@@ -1,6 +1,6 @@
 # Awesome-Media-Advertising-Subscriber-CRM
 
-# Top Media Advertising & Subscriber CRM Tools Ecosystem
+## Top Media Advertising & Subscriber CRM Tools Ecosystem
 
 **Curated List of SaaS Products & Open-Source GitHub Projects**  
 *Focused on Ad Sales Management, Subscription Lifecycle & Audience Monetization*  
